@@ -18,10 +18,10 @@ return (
 
       </div>
       <div className='relative z-10 max-w-6xl mx-auto'>
-        <h2 className='text-4xl sm:text-5xl font-semibold mb-12 text-center'>Your Cart</h2>
+        <h2 className='text-4xl sm:text-5xl font-semibold mb-10 text-center'>Your Cart</h2>
         {cartProducts.length === 0 ? (
           <div className=' text-center text-gray-300'>
-            <p className='text-xl text-gray-300'>Your cart is empty. Start shopping now!</p>
+            <p className='text-xl text-gray-300 m-4'>Your cart is empty. Start shopping now!</p>
             <button onClick={()=>navigate("/")} className=' bg-linear-to-r from-cyan-500 to-blue-500 px-8 py-3 rounded-2xl text-white hover:opacity-90 transition-all'>
               Shop Now
             </button>

@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import { all_products } from '../assets/data';
 import { ShopContext } from '../context/ShopContext';
 import { ShoppingBag } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Offer = () => {
     const { addToCart } = useContext(ShopContext);
@@ -9,6 +10,7 @@ const Offer = () => {
     const [timeLeft, setTimeLeft] = useState({});
     const [products, setProducts] = useState(all_products.slice(0, 12));
 
+    const navigate = useNavigate();
     useEffect(() => {
       const targetDate = new Date();
       targetDate.setDate(targetDate.getDate() + 5);
@@ -44,7 +46,7 @@ const Offer = () => {
         </div>
         <div className=' grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10'>
           {products.map((product) => (
-            <div key={product._id} className='bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl overflow-hidden shadow-2xl hover:scale-105 hover:shadow-cyan-400/30 hover:bg-white/20 transition-all duration-500'>
+            <div key={product._id} onClick={() => navigate(`/product/${product._id}`)} className='bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl overflow-hidden shadow-2xl hover:scale-105 hover:shadow-cyan-400/30 hover:bg-white/20 transition-all duration-500'>
               <div className=' relative w-full h-64 flex items-center justify-center bg-linear-to-b from-purple-800/40 to-transparent'>
                 <img src={product.image} alt={product.name} className='w-56 h-56 object-contain hover:scale-110 transition-transform duration-500' />
               </div>
