@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { UsersController } from './users.controller';
+import { OrdersService } from './orders.service';
+import { OrdersController } from './orders.controller';
 import { PrismaModule } from '../../prisma/prisma.module';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -18,8 +18,7 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
       }),
     }),
   ],
-  providers: [UsersService, JwtAuthGuard],
-  controllers: [UsersController],
-  exports: [UsersService], // exportamos el servicio para poderlo usar en otros modulos
+  controllers: [OrdersController],
+  providers: [OrdersService, JwtAuthGuard],
 })
-export class UsersModule {}
+export class OrdersModule {}
