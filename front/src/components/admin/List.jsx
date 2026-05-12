@@ -50,7 +50,7 @@ const List = () => {
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8'>
           {products.map((product) => (
             <div key={product.id} className='bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 flex flex-col justify-between shadow-lg'>
-              <img src={`${url}/images/${product.image}`} alt={product.name} className='w-full h-48 object-contain mb-4 rounded-xl' />
+              <img src={`${url}${product.image}`} alt={product.name} className='w-full h-48 object-contain mb-4 rounded-xl' />
               <h3 className='text-lg font-semibold'>{product.name}</h3>
               <p className='text-sm text-gray-400 mb-2 truncate'>{product.description}</p>
               <p className='font-bold mb-2 text-cyan-300'>${product.price}</p>
